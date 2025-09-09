@@ -33,7 +33,10 @@ public class inicioPAM {
                 "11. Prohibido el uso de audífonos durante la clase. " +
                 "12. Prohibido comer y/o tomar líquidos en el salón. " +
                 "13. Prohibido sentarse encima de las mesas, así como columpiarse en las sillas. " +
-                "14.Todo tema académico debe ser revisado primeramente por parte del alumno con el docente, de no resolverse, pasar con su respectivo tutor, y de ser necesario con la coordinación " +
+                "14.Todo tema académico debe ser revisado primeramente por parte del alumno con el docente, de no 
+                
+                
+                jresolverse, pasar con su respectivo tutor, y de ser necesario con la coordinación " +
                 "de tutores. En caso de no solucionarse pasar a la dirección del programa educativo. " +
                 "15.Cualquier situación no prevista en el presente reglamento pasar directamente con la dirección del programa educativo. " +
                 "16. El día destinado a entrega de calificaciones todos los estudiantes deben estar presentes, ese día se entregarán exámenes y se brindará retroalimentación. " +
