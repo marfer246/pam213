@@ -1,13 +1,25 @@
-//condicional
+// bucles 
+//let count = 0;
 
-let score = 70;
+//while (count < 50) {
+    //console.log(count);
+  //  count++;
+//}
 
-if (score > 30) {
-    console.log('You need to practice more');
-} else if (score > 15) {
-    console.log('Estas mejorando');
+//let names = ['ryan', 'joe', 'john'];
+
+//for(let i = names.length - 1; i >= 0; i--) {
+   // console.log(names[i]);
+//}
+
+
+// funcionesfunction add(n1, n2) {
+    console.log(n1 + n2);
 }
 
-else {
-    console.log('You need to follow this tutorial');
-}
+add(3, 2);
+add(100, 300);
+
+add(3, 2);
+add(100, 300);
+add(3123123123, 132123123);
