@@ -1,21 +1,31 @@
-let nombre ="Armando";
-const edad= 25;
-nombre = "yoyyoyoy";
-const saludo = "Holaaaaaa, "+ nombre +".estos " + edad + "años.";
-console.log(saludo);
+//suma = 7-12; 
+//var b;
+//b=a;
+//console.log(suma);
+//console.log(b);
+
+// mivar = 12; 
+//console.log(mivar);
+//let 
+//const 
+//a = 10;
+// variables no inicializadas cuando les das una valor
+//cuando no les asignas un valor. 
+//suma = 13 * 12;
+//console.log(suma);
+
+//var libros= 105;
+///console.log(libros);
+// 
+//libros = libros +1;
+//console.log (libros);
+//
+///libros++ ; 
+//console.log (libros);
+
+var a = 23; 
+a+= 5;
+console.log(a);
 
 
 
-//function cuadrado(numero) {
-//  return numero * numero;
-//}
-const cuadrado =(numero)=>numero *numero;
-console.log(cuadrado(12));
-//console.log(cuadrado(23));
-//console.log(cuadrado(11));
-
-
-//const saludoPersonalizado = (nombre, edad) => `Holaaaa, mi nombre es ${nombre} y tengo ${edad} anos.`;
-//console.log(saludoPersonalizado("yuliana",19));
-//console.log(saludoPersonalizado("Ferndo",30));
-//console.log(saludoPersonalizado("Juan",30));

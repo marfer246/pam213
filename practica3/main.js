@@ -15,11 +15,16 @@ function verificarUsuario(usuario) {
     }); //ok 
 }
 verificarUsuario("admin")
-    .then(res=>console.log(res))
+    .then(res=>console.log(res)) // bien
     .catch(err=>console.error(err));
 verificarUsuario("ivan")
     .then(res=> console.log(res))
     .catch(err=>console.error(err));
+    
+
+    
+
+    
 
 
 

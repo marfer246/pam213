@@ -1,5 +1,4 @@
-function restar(a,b){  // Función restar
+export function restar(a,b){  // Función restar
   return a -b; 
 }
-
-module.exports ={ restar};
+export default restar;
