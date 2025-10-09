@@ -17,15 +17,23 @@
 //var libros= 105;
 ///console.log(libros);
 // 
+
 //libros = libros +1;
 //console.log (libros);
 //
 ///libros++ ; 
 //console.log (libros);
 
-var a = 23; 
-a+= 5;
-console.log(a);
+//let a = 23; 
+//a += 5;
+//console.log(a);
+let num = 10;
+let otronum= num; 
+console.log(otronum, num);
+console.error(); //Imprime un mensaje de error en la consola.
+console.warn(); //Imprime un mensaje de advertencia en la consola.
+console.info(); //Imprime un mensaje de información en la consola.
+
 
 
 
