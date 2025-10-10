@@ -34,6 +34,15 @@ console.error(); //Imprime un mensaje de error en la consola.
 console.warn(); //Imprime un mensaje de advertencia en la consola.
 console.info(); //Imprime un mensaje de información en la consola.
 
+//const foo = null;
+//foo === null; // true
+//const age = 42;
+//typeof age === 'number' && age > 18 ;
 
+const edad = 25;
 
-
+if (edad >= 18 ){
+    console.log("Es mayor de edad")
+} else if (edad >= 16 ){
+     console.log("Es mayor de edad")
+};
