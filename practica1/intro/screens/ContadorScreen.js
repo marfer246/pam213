@@ -33,7 +33,7 @@ const [contador,setContador]=useState(0); //destructurador []
 const styles = StyleSheet.create({ //styles es un objeto
   container: { //la clase a la que corresponde
     flex: 1, //toma toda la pantalla 
-    backgroundColor: '#c3bce6ff',
+    backgroundColor: '#6edf1eff',
     alignItems: 'center', //end, center en el eje x 
     justifyContent: 'center', //en el eje y
   },
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({ //styles es un objeto
       color: "#da0c9dff",
       fontSize: 35,
       fontFamily:'courier' ,
-      fontWeight: 700 , // 100 es el mas delgado 
+      fontWeight: 100 , // 100 es el mas delgado 
       fontStyle: 'normal',
       textDecorationLine: 'underline',
   },
