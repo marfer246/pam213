@@ -1,11 +1,12 @@
+//ModalScreen
 import { Text, StyleSheet, View } from 'react-native'
 
 
-export default function ImageBackgroungScreen (){
+export default function ModalScreen (){
 
     return (
       <View>
-        <Text>Te amo yo tanto mi amorcito, mio tu todo.. </Text>
+        <Text>dam dam dam </Text>
       </View>
     )
   

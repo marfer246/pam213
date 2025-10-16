@@ -1,11 +1,12 @@
+//ScrollView
 import { Text, StyleSheet, View } from 'react-native'
 
 
-export default function ImageBackgroungScreen (){
+export default function ScrollViewScreen (){
 
     return (
       <View>
-        <Text>Te amo yo tanto mi amorcito, mio tu todo.. </Text>
+        <Text>tengo sueno </Text>
       </View>
     )
   
