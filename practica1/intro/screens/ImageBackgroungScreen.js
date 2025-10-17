@@ -5,7 +5,7 @@ export default function ImageBackgroungScreen (){
 
     return (
       <View>
-        <Text>Te amo yo tanto mi amorcito, mio tu todo.. </Text>
+        <Text>volvere.. </Text>
       </View>
     )
   
