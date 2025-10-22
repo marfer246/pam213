@@ -9,6 +9,8 @@ import ActivityIndicatorScreen from './ActivityIndicatorScreen'
 import FlatListScreen from './FlatListScreen'
 import ModalScreen from './ModalScreen'
 import BottomScreen from './BottomScreen'
+import mioScreen from './mioScreen'
+//mioScreen
 
 //BottomScreen
 
@@ -36,16 +38,14 @@ export default function MenuScreen (){
         return <ModalScreen/>;
         case 'Bottom':
         return <BottomScreen/>;
+        case 'mio':
+        return <mioScreen/>;
         case 'menu':
 
             default:
                 return (
-                    <View>
-                         <Text>Menu de practicas </Text>
-
-                         
-
-
+                    <View style = {style.container}>
+                        <Text style= {{ marginBottom: 20, fontSize: 30}}>Menu de practicas </Text>
 
                          <Button color="pink" title='Pract: Contador' onPress={()=> setScreen('contador')}/>
                          <Button title='Pract: Buttons' onPress={()=> setScreen('botones')}/>
@@ -56,8 +56,17 @@ export default function MenuScreen (){
                          <Button color="pink" title='Pract: FlatList' onPress={()=> setScreen('FlatList')}/>
                          <Button title='Pract: Modal' onPress={()=> setScreen('Modal')}/>
                          <Button color="pink"  title='Pract: Bottom' onPress={()=> setScreen('Bottom')}/>
-
+                         <Button color="black"  title='Pract: mio ' onPress={()=> setScreen('mio')}/>
                     </View>
                 );
     }
 }
+
+//zona de estilos 
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent:  'center',
+    alignItems: 'center',
+},
+});

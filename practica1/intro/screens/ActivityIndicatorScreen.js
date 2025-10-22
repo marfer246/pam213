@@ -6,7 +6,7 @@ export default function Indicator() {
   // estos son los estados
   const [cargando, setCargando] = useState(false);
   const [mostrarContenido, setMostrarContenido] = useState(false);
-
+   
   // Función que maneja su funcionamiento
   //Aquí cambiamos el valor del estado con el set
   const manejarCarga = () => {
