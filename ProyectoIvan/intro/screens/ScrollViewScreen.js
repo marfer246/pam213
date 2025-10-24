@@ -1,11 +1,12 @@
+//ScrollView
 import { Text, StyleSheet, View } from 'react-native'
 
 
-export default function mioScreen (){
+export default function ScrollViewScreen (){
 
     return (
       <View>
-        <Text>mio.. </Text>
+        <Text>tengo sueno </Text>
       </View>
     )
   

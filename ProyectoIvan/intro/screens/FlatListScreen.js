@@ -1,11 +1,12 @@
+//FlatListScreen
 import { Text, StyleSheet, View } from 'react-native'
 
 
-export default function mioScreen (){
+export default function FlatListScreen (){
 
     return (
       <View>
-        <Text>mio.. </Text>
+        <Text>volvere.. </Text>
       </View>
     )
   

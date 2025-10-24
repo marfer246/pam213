@@ -1,11 +1,12 @@
+//ModalScreen
 import { Text, StyleSheet, View } from 'react-native'
 
 
-export default function mioScreen (){
+export default function ModalScreen (){
 
     return (
       <View>
-        <Text>mio.. </Text>
+        <Text>dam dam dam </Text>
       </View>
     )
   
