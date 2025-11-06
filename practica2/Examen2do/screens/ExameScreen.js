@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {Text, StyleSheet, View,Button, TextInput, Alert, ImageBackground, Animated, Switch,} from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { Text, StyleSheet, View,Button, TextInput, Alert, ImageBackground,
+  Animated,
+  Switch,
+} from 'react-native';
 
 export default function ExameScreen() {
-  
   const [cargando, setCargando] = useState(true);
-  const desvanecido = new Animated.Value(1);
+  const desvanecido = useRef(new Animated.Value(1)).current;
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [esEncendido, cambiarEncendido] = useState(false);
+
   const mostrarAlerta = () => {
     if (nombre.trim() === '' && email.trim() === '') {
       Alert.alert('Error', 'Favor de llenar todos los campos');
@@ -20,25 +23,23 @@ export default function ExameScreen() {
     } else if (!esEncendido) {
       Alert.alert('Error', 'Términos no aceptados');
     } else {
-      Alert.alert(
-        'Registro Exitoso',
-        `Nombre: ${nombre}\nEmail: ${email}`
-      );
+      Alert.alert('Registro Exitoso', `Nombre: ${nombre}\nEmail: ${email}`);
     }
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       Animated.timing(desvanecido, {
-        toValue: 0,           
-        duration: 800,      
-        useNativeDriver: true 
+        toValue: 0,
+        duration: 800,
+        useNativeDriver: true,
       }).start(() => setCargando(false));
     }, 2000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
-
+//3 Implementar un ScrollView vertical que contenga mínimo 6 tarjetas de
+fotos
   if (cargando) {
     return (
       <Animated.View style={[styles.splashContainer, { opacity: desvanecido }]}>
@@ -52,9 +53,10 @@ export default function ExameScreen() {
       </Animated.View>
     );
   }
+//pantalla principal con mi titulo
   return (
     <ImageBackground
-      source={require('../assets/Recursos/5.jpg')} 
+      source={require('../assets/Recursos/5.jpg')}
       resizeMode="cover"
       style={styles.background}
     >
@@ -73,18 +75,18 @@ export default function ExameScreen() {
           style={styles.input}
           value={email}
           onChangeText={setEmail}
+          keyboardType="email-address"
         />
 
         <View style={styles.terminos}>
           <Text style={{ color: 'white' }}>¿Acepta términos y condiciones?</Text>
           <Switch value={esEncendido} onValueChange={cambiarEncendido} />
+            <Button color="#151716" title="ver detalles" onPress={ verdetalles} />
         </View>
 
-        <Button
-          color="#151716ff"
-          title="Registrarse"
-          onPress={mostrarAlerta}
-        />
+        <View style={styles.boton}>
+          <Button color="#151716" title="Registrarse" onPress={mostrarAlerta} />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -92,11 +94,11 @@ export default function ExameScreen() {
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center',     
-    width: '100%',            
-    height: '100%',           // Alto completo
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
   },
   texto: {
     color: 'black',
@@ -124,31 +126,28 @@ const styles = StyleSheet.create({
   },
   textoContainer: {
     width: '80%',
-    backgroundColor: 'rgba(81, 78, 78, 0.7)', // Fondo semitransparente
-    padding: 20, // Espacio interno
+    backgroundColor: 'rgba(81, 78, 78, 0.7)',
+    padding: 20,
+    borderRadius: 10,
   },
   input: {
     color: 'white',
     width: '100%',
     borderWidth: 2,
-    borderColor: '#ffffffff',
+    borderColor: '#ffffff',
     borderRadius: 8,
     padding: 10,
     marginBottom: 10,
-    backgroundColor: 'rgba(143, 140, 140, 0.7)', // Fondo semitransparente
+    backgroundColor: 'rgba(143, 140, 140, 0.7)',
   },
   terminos: {
-    flexDirection: 'row', // Elementos en fila
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 10,
     marginBottom: 30,
   },
   boton: {
-    marginTop: 20,
+    marginTop: 10,
   },
 });
-
-
-
-
