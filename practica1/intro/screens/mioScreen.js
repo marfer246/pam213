@@ -1,122 +1,168 @@
-"use client"
+// Importamos las librerías necesarias de React y React Native
+import React, { useState, useEffect } from 'react';
+import { View, Button, Switch, TextInput, Alert, Platform, ImageBackground, ScrollView, Text, StyleSheet } from 'react-native';
 
-import { useState } from "react"
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
+// Definimos nuestro componente principal
+export default function MioScreen() {
+  // Estado para controlar si el Switch está activo o no
+  const [activo, setActivo] = useState(false);
+  
+  // Estado para almacenar el texto ingresado en el TextInput
+  const [texto, setTexto] = useState('');
+  
+  // Estado para controlar si mostramos la pantalla de Splash
+  const [mostrarSplash, setMostrarSplash] = useState(true);
 
-export default function LoginScreen({ navigation }) {
-  const [userName] = useState("Maria Fernanda")
-  const [userInitials] = useState("MF")
+  // useEffect se ejecuta cuando el componente se monta
+  useEffect(() => {
+    // Creamos un temporizador que ocultará el Splash después de 2 segundos
+    const timer = setTimeout(() => {
+      setMostrarSplash(false); // Cambiamos el estado para ocultar el Splash
+    }, 2000); 
+    
+    // Función de limpieza que se ejecuta cuando el componente se desmonta
+    return () => clearTimeout(timer);
+  }, []); // El array vacío [] significa que solo se ejecuta una vez al montar el componente
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitulo}>Iniciar sesión</Text>
-        <TouchableOpacity>
-          <Ionicons name="close" size={28} color="white" />
-        </TouchableOpacity>
+  // Si mostrarSplash es true, mostramos la pantalla de Splash
+  if (mostrarSplash) {
+    return (
+      <View style={styles.splashContainer}>
+        <Text style={styles.splashText}>Mi App</Text>
       </View>
+    );
+  }
 
-      <View style={styles.content}>
-        <View style={styles.greetingContainer}>
-          <Text style={styles.greetingText}>Hola, {userName}</Text>
-          <View style={styles.avatarContainer}>
-            <Text style={styles.avatarText}>{userInitials}</Text>
+  // Si no estamos en el Splash, mostramos la pantalla principal
+  return (
+    // ImageBackground nos permite poner una imagen de fondo
+    <ImageBackground
+      source={{ uri: 'https://via.placeholder.com/400' }} // URL de la imagen de fondo
+      style={styles.background} // Estilos para el fondo
+      resizeMode="cover" // Cómo se ajusta la imagen (cover = cubrir todo el espacio)
+    >
+      {/* ScrollView permite hacer scroll cuando el contenido es más grande que la pantalla */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {/* View principal que contiene todo el contenido */}
+        <View style={styles.content}>
+          {/* Texto título de la aplicación */}
+          <Text style={styles.title}>Mi Componente</Text>
+          
+          {/* Contenedor para el Switch y su etiqueta */}
+          <View style={styles.switchContainer}>
+            {/* Texto que muestra el estado del Switch */}
+            <Text>Switch: {activo ? 'ON' : 'OFF'}</Text>
+            
+            {/* Componente Switch para activar/desactivar */}
+            <Switch
+              value={activo} // Valor actual del Switch
+              onValueChange={(nuevoValor) => {
+                setActivo(nuevoValor); // Actualizamos el estado cuando cambia
+                console.log('Switch cambiado', nuevoValor); // Log para debugging
+              }}
+            />
+          </View>
+
+          {/* Campo de texto para que el usuario ingrese datos */}
+          <TextInput
+            placeholder="Escribe aquí" // Texto placeholder
+            value={texto} // Valor actual del TextInput
+            onChangeText={setTexto} // Función que se ejecuta cuando el texto cambia
+            style={styles.textInput} // Estilos del TextInput
+          />
+
+          {/* Botón que muestra el texto ingresado */}
+          <Button
+            title="Presionar" // Texto del botón
+            onPress={() => {
+              console.log('¡Botón presionado!'); // Log para debugging
+              
+              // Mostramos alerta según la plataforma
+              if (Platform.OS === 'web') {
+                alert('Texto ingresado: ' + texto); // Alert nativo del navegador
+              } else {
+                Alert.alert('Texto ingresado', texto); // Alert de React Native
+              }
+            }}
+          />
+
+          {/* Contenido adicional para demostrar el funcionamiento del ScrollView */}
+          <View style={styles.extraContent}>
+            <Text>Elemento 1 - ScrollView funciona</Text>
+            <Text>Elemento 2 - Desliza hacia abajo</Text>
+            <Text>Elemento 3 - Para ver más contenido</Text>
+            <Text>Elemento 4 - Sigue deslizando</Text>
+            <Text>Elemento 5 - Último elemento</Text>
           </View>
         </View>
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("BiometricLogin")}>
-            <Ionicons name="finger-print" size={24} color="#0061E0" />
-            <Text style={styles.buttonText}>Entra con biometría</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("PasswordLogin")}>
-            <Ionicons name="key" size={24} color="#0061E0" />
-            <Text style={styles.buttonText}>Entra con contraseña</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Texto adicional debajo de los botones */}
-        <TouchableOpacity>
-          <Text style={styles.forgotPasswordText}>¿Olvidaste tu contraseña?</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
+      </ScrollView>
+    </ImageBackground>
+  );
 }
 
+// Creamos los estilos para nuestro componente
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#2a6db0ff",
+  // Estilos para la pantalla de Splash
+  splashContainer: {
+    flex: 1, // Ocupa toda la pantalla
+    justifyContent: 'center', // Centra verticalmente
+    alignItems: 'center', // Centra horizontalmente
+    backgroundColor: '#2196F3', // Color de fondo azul
   },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+  
+  // Estilos para el texto del Splash
+  splashText: {
+    fontSize: 24, // Tamaño de fuente grande
+    color: 'white', // Color blanco
+    fontWeight: 'bold', // Texto en negrita
   },
-  headerTitulo: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "600",
+  
+  // Estilos para el ImageBackground
+  background: {
+    flex: 1, // Ocupa toda la pantalla
   },
+  
+  // Estilos para el contenedor del ScrollView
+  scrollContainer: {
+    flexGrow: 1, // Permite que crezca según el contenido
+    padding: 20, // Espaciado interno
+  },
+  
+  // Estilos para el contenido principal
   content: {
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo blanco semitransparente
+    padding: 20, // Espaciado interno
+    borderRadius: 10, // Bordes redondeados
   },
-  greetingContainer: {
-    alignItems: "center",
-    marginTop: 60,
+  
+  // Estilos para el título
+  title: {
+    fontSize: 20, // Tamaño de fuente
+    fontWeight: 'bold', // Negrita
+    marginBottom: 20, // Espacio inferior
+    textAlign: 'center', // Centrado
   },
-  greetingText: {
-    color: "#fff",
-    fontSize: 28,
-    fontWeight: "700",
-    marginBottom: 20,
+  
+  // Estilos para el contenedor del Switch
+  switchContainer: {
+    flexDirection: 'row', // Elementos en fila
+    justifyContent: 'space-between', // Espacio entre elementos
+    alignItems: 'center', // Centrado vertical
+    marginBottom: 15, // Espacio inferior
   },
-  avatarContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: "#4BC7F3",
-    alignItems: "center",
-    justifyContent: "center",
+  
+  // Estilos para el TextInput
+  textInput: {
+    borderWidth: 1, // Ancho del borde
+    borderColor: '#ccc', // Color del borde (gris claro)
+    borderRadius: 5, // Bordes redondeados
+    padding: 10, // Espaciado interno
+    marginBottom: 15, // Espacio inferior
   },
-  avatarText: {
-    color: "#fff",
-    fontSize: 28,
-    fontWeight: "600",
+  
+  // Estilos para el contenido adicional
+  extraContent: {
+    marginTop: 20, // Espacio superior
+    alignItems: 'center', // Centrado horizontal
   },
-  buttonContainer: {
-    width: "100%",
-    gap: 15,
-    marginBottom: 20,
-  },
-  button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    paddingVertical: 15,
-    borderRadius: 12,
-    gap: 10,
-  },
-  buttonText: {
-    color: "#0061E0",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  forgotPasswordText: {
-    color: "#4BC7F3",
-    fontSize: 14,
-    fontWeight: "500",
-    textDecorationLine: "underline",
-    marginTop: 10,
-  },
-})
+});
