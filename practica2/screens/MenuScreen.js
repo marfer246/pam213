@@ -11,7 +11,6 @@ import ModalScreen from './ModalScreen'
 import BottomScreen from './BottomScreen'
 import MioScreen from './MioScreen'
 import RepScreen from './RepScreen'
-//RepScreen
 
 export default function MenuScreen (){
   
@@ -43,7 +42,7 @@ export default function MenuScreen (){
         return <RepScreen/>;
 
         case 'menu':
-
+//
 
             default:
                 return (
@@ -66,6 +65,8 @@ export default function MenuScreen (){
     }
 }
 //zona de estilos 
+///
+///
 const style = StyleSheet.create({
   container: {
     flex: 1,
