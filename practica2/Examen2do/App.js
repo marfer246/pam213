@@ -1,9 +1,21 @@
-import MenuScreen from './screens/MenuScreen'
 
-// 2. main: zona de componentes, principal 
-export default function App() { 
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 
+export default function App() {
   return (
- <MenuScreen/>
-  );
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <Text>Tenemos aqui la app</Text>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#09f',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
