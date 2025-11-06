@@ -19,14 +19,14 @@ const mostrarAlerta = () => {
         ]
       );
     }
-  }
+  }// `
   else{
     if (Platform.OS === 'web'){
-      alert( ` Bienvenido, ${nombre}! `);
+       `alert(Bienvenido, ${nombre}!); `
     }
     else{
-      Alert.alert(  // `
-        'Hola', ` Bienvenido, ${nombre}!` ,
+      Alert.alert(
+        ` 'Hola', Bienvenido, ${nombre}!, `
         [
           {text: 'cancelar'},
           {text: 'aceptar'}
@@ -74,7 +74,7 @@ container:{
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#afaff7ff',
+  backgroundColor: '#ffff',
   padding: 20,
 },
 titulo:{
@@ -84,7 +84,7 @@ titulo:{
 },
 input:{
   borderWidth: 1,
-  borderColor: '#000000ff',
+  borderColor: '#aaa',
   borderRadius: 5,
   width: '80%',
   padding: 10,

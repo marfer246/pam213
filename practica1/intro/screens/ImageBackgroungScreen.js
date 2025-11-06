@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 const SPLASH_IMAGE= require ('../assets/Recursos/4.jpg');
 const MAIN_IMAGE= require ('../assets/Recursos/5.jpg');
 const LOGO_IMAGE= require ('../assets/Recursos/6.jpg');
+
 export default function ImageBackgroungScreen(){
     const [isLoading, setIsLoading]= useState(true);
     useEffect(()=> {

@@ -18,3 +18,9 @@ console.log("La suma total de las edades es:" +totalEdades +" años");
 
 
 
+
+
+
+
+
+

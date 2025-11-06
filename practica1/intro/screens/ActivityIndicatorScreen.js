@@ -1,64 +1,97 @@
-//importaciones //hook useState 
-import React, { useState } from 'react'; //biblioteca principal 
-import { Text, StyleSheet, View, Button, ActivityIndicator } from 'react-native';
-// Spinner de carga (LOADER)
-// Exportamos la funcion indicador 
-//exporta el compornete principal. Indicador nombre del componente
-export default function Indicator() {
-  
-  // estos son los estados. mostrarContenido: Controla si mostrar el texto de confirmación
+import React, { useState } from 'react'; // Importa React y el hook useState para manejar estados (como si algo está cargando o no).
 
-  const [cargando, setCargando] = useState(false);
+import { Text, StyleSheet, View, Button, ActivityIndicator } from 'react-native';//  el spinner de carga.
+//Importa componentes visuales: texto, estilos, contenedor, botón y el spinner de carga
+export default function Indicator() {
+  const [cargando, setCargando] = useState(false); // cargando dice si el spinner debe mostrarse. Empieza en false
+
   const [mostrarContenido, setMostrarContenido] = useState(false);
-   
-  // Función que maneja su funcionamiento
-  //Aquí cambiamos el valor del estado con el set.  Comienza la simulación de carga
-  const manejarCarga = () => {
-    setCargando(true); //muestra el loader
+// mostrarContenido decide si mostrar el mensaje final. También empieza en false
+
+  const [mensajePrompt, setMensajePrompt] = useState('Presiona "Acción" para comenzar');
+// mensajePrompt guarda el texto que se muestra como guía o estado actual
+
+  const manejarCarga = () => { // Se llama cuando presionas el botón "Acción".  - Se ejecuta cuando presionas el botón "Acción".
+    setCargando(true);
     setMostrarContenido(false);
+    setMensajePrompt('Cargando... por favor espera');
+    //Activa el spinner, oculta el mensaje final y cambia el texto del prompt
 
     setTimeout(() => {
-      setCargando(false); // oculta el loader despues de 5s
-      setMostrarContenido(true); // Muestra el mensaje de confirmación
-    }, 5000); 
+      setCargando(false);
+      setMostrarContenido(true);
+      setMensajePrompt('¡Acción completada!');
+    }, 5000);
+  // Después de 5 segundos, oculta el spinner, muestra el mensaje final y actualiza el prompt.
   };
+  const cancelarCarga = () => {
+    setCargando(false);
+    setMostrarContenido(false);
+    setMensajePrompt('Carga cancelada');
+  };
+  //Si presionas "Cancelar", se detiene todo y se muestra un mensaje de cancelación
 
-  // View
   return (
     <View style={styles.contenedor}>
       <Text style={styles.titulo}>Practica: Activity Indicator</Text>
-      
-      <Button color='hsla(329, 92%, 66%, 1.00)' title="Acción" onPress={manejarCarga} />
-      {/* Aquí se usa el componente Activity Indicator*/}
+      <Text style={styles.prompt}>{mensajePrompt}</Text>
+
+      <View style={styles.botones}>
+        <Button color="#fb5c97ff" title="Acción" onPress={manejarCarga} />
+        <View style={{ width: 10 }} />
+        <Button color="#868585ff" title="Cancelar" onPress={cancelarCarga} /> 
+      </View>
+      {/*  Dos botones: uno para iniciar la carga, otro para cancelarla. El espacio entre ellos es un View con ancho.
+ */}
+
       {cargando && (
-        <ActivityIndicator size="large" color='hsla(266, 92%, 66%, 1.00)' style={styles.indicador} />
+        <ActivityIndicator
+          size="large"
+          color="#ff4805ff"
+          style={styles.indicador}
+        />
       )}
+      {/* Si cargando es true, muestra el spinner
+ */}
 
       {mostrarContenido && (
-        <Text style={styles.contenido}> Acción realizada  </Text>
+        <Text style={styles.contenido}> ¡¡ Acción realizada :D!!</Text>
       )}
     </View>
   );
-}// propr como se activa y como desactiva, que se personalice incapie en sus props,modificar con el stylesheet
-
-//Estilos
+}
 const styles = StyleSheet.create({
   contenedor: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#ffffffff',
+    // Centra todo, agrega espacio y color de fondo
   },
   titulo: {
-    fontSize: 20,
-    marginBottom: 20,
+    fontSize: 24,
+    marginBottom: 10,
     fontWeight: 'bold',
+    color: '#000000ff',
+  }, // Estilo del título: grande, azul y en negrita
+  prompt: {
+    fontSize: 16,
+    marginBottom: 20,
+    color: '#3448faff',
+  },
+  botones: {
+    flexDirection: 'row', // 'column' o Elementos en vertical (de arriba hacia abajo)
+    marginBottom: 20, // Pone los botones en fila horizontal el margen de botones
   },
   indicador: {
     marginVertical: 20,
-  },
+  },// Espacio arriba y abajo del spinner
   contenido: {
-    fontSize: 16,
+    fontSize: 18,
     color: 'green',
     marginTop: 10,
+    fontWeight: '600',
   },
 });
+//// propr como se activa y como desactiva, que se personalice, incapie en sus props, que se pueda modificar con el stylesheet
