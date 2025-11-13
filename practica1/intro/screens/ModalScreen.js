@@ -5,17 +5,22 @@ export default function ModalScreen() {
   
   const [modalVisible,setModalVisible] = useState(false);
   const [descripcion,setDescripcion] = useState('');
+
   const [numFav,setNumFav] = useState('');
+  
   const [gasto,setGasto] = useState(true);
   const botonGuardar = () => {
+
         if (!descripcion || !monto) {
           if (Platform.OS === "web") {
+
             alert('Error: Por favor completa todos los campos')
           } else {
             Alert.alert('Error', 'Por favor completa todos los campos');
           }
             return;
         }
+
         if (Platform.OS === 'web') {
             alert('Exito' + ` Prueba Realizada, Nombre: ${descripcion} y Numero favorito: ${monto}`); 
         } else {
@@ -46,6 +51,7 @@ export default function ModalScreen() {
               <TextInput style={styles.modalInput} placeholder='Escribe tu número favorito' keyboardType='numeric' placeholderTextColor="#888" value={numFav} onChangeText={setNumFav}/>
             
               <View style={styles.switchContenedor}>
+
               <Text style={[styles.switchTexto, !gasto && styles.switchTextoActivoVerde]}>Activo</Text>
               <Switch trackColor={{false:'#DCFCE7', true: '#FEE2E2'}} thumbColor={gasto ? '#EF4444' : '#22C55E'} onValueChange={()=> setGasto(!gasto)} value={gasto}/>
               <Text style={[styles.switchTexto, !gasto && styles.switchTextoActivoRojo]}>Inactivo</Text>
@@ -77,6 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#626262ff', 
+
   },
   botonMostrar: {
     paddingVertical: 14,
@@ -89,17 +96,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 4,
+
   },
   botonMostrarTexto: {
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
+
   },
   modalContenedor: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)', 
+
   },
   modalVista: {
     width: '90%',
@@ -111,16 +121,19 @@ const styles = StyleSheet.create({
     shadowOffset: {
       width: 0,
       height: 5,
+
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+
   },
   modalTitulo: {
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 24, 
     color: '#1F2937', 
+
   },
   modalInput: {
     width: '100%',
@@ -133,6 +146,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9FAFB', 
     color: '#1F2937', 
     fontSize: 16,
+
   },
   switchContenedor: {
     flexDirection: 'row',
@@ -140,25 +154,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 24,
     width: '100%',
+
   },
   switchTexto: {
     fontSize: 16,
     fontWeight: '500',
     marginHorizontal: 12,
     color: '#6B7280',
+
   },
   switchTextoActivoVerde: {
     color: '#22C55E',
     fontWeight: 'bold',
+
   },
   switchTextoActivoRojo: {
     color: '#EF4444',
     fontWeight: 'bold',
+
   },
   modalBotones: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+
   },
   botonBase: {
     flex: 1, 
@@ -166,23 +185,28 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginHorizontal: 6, 
+
   },
   botonGuardar: {
     backgroundColor: '#007AFF',
+
   },
   botonGuardarTexto: {
     color: '#FFFFFF', 
     fontWeight: 'bold',
+
     fontSize: 16,
   },
   botonCancelar: {
     backgroundColor: '#F3F4F6', 
     borderWidth: 1,
     borderColor: '#E5E7EB',
+
   },
   botonCancelarTexto: {
     color: '#374151', 
     fontWeight: 'bold',
     fontSize: 16,
+
   },
 });
