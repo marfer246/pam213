@@ -3,14 +3,16 @@ import React, { useState } from 'react'
 import ContadorScreen from './ContadorScreen'
 import BotonesScreen from './BotonesScreen'
 import TextInputScreen from './TextInputScreen'
-import ImageBackgroungScreen from './ImageBackgroungScreen'
+//imageback
 import ScrollViewScreen from './ScrollViewScreen'
 import ActivityIndicatorScreen from './ActivityIndicatorScreen'
 import FlatListScreen from './FlatListScreen'
 import ModalScreen from './ModalScreen'
 import BottomScreen from './BottomScreen'
 import MioScreen from './MioScreen'
-import RepScreen from './RepScreen'
+import SecListScreen from './SecListScreen'
+//SecListScreen
+
 //RepScreen
 
 export default function MenuScreen (){
@@ -25,8 +27,7 @@ export default function MenuScreen (){
             return <BotonesScreen/>;
         case 'TextInput':
         return <TextInputScreen/>;
-        case 'ImageBackgroung':
-        return <ImageBackgroungScreen/>;
+
         case 'ScrollView':
         return <ScrollViewScreen/>;
         case 'ActivityIndicator':
@@ -39,8 +40,10 @@ export default function MenuScreen (){
         return <BottomScreen/>;
         case 'Mio':
         return <MioScreen/>;
-        case 'Rep':
-        return <RepScreen/>;
+        case 'SecList':
+        return <SecListScreen/>;
+
+
 
         case 'menu':
 
@@ -53,14 +56,15 @@ export default function MenuScreen (){
                          <Button color="pink" title='Pract: Contador' onPress={()=> setScreen('contador')}/>
                          <Button title='Pract: Buttons' onPress={()=> setScreen('botones')}/>
                          <Button color="pink" title='Pract: TextInput' onPress={()=> setScreen('TextInput')}/>
-                         <Button title='Pract: ImageBackgroung' onPress={()=> setScreen('ImageBackgroung')}/>
+     
                          <Button color="pink" title='Pract: ScrollView' onPress={()=> setScreen('ScrollView')}/>
                          <Button title='Pract: ActivityIndicator' onPress={()=> setScreen('ActivityIndicator')}/>
                          <Button color="pink" title='Pract: FlatList' onPress={()=> setScreen('FlatList')}/>
                          <Button title='Pract: Modal' onPress={()=> setScreen('Modal')}/>
                          <Button color="pink"  title='Pract: Bottom' onPress={()=> setScreen('Bottom')}/>
                          <Button color="black" title='Pract: Mio' onPress={()=> setScreen('Mio')}/>
-                         <Button color="pink" title='Pract: Rep' onPress={()=> setScreen('Rep')}/>
+                         <Button color="pink" title='Pract: SecList' onPress={()=> setScreen('SecList')}/>
+
                     </View>
                 );
     }

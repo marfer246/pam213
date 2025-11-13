@@ -66,6 +66,54 @@
   //  res = confirm ('quieres');
 //} while (res);
 
-for (let i = 0; i < 10 && i !== 3; i++) {
-  console.log('Hola')
-};
+//for (let i = 0; i < 10 && i !== 3; i++) {
+///  console.log('Hola')
+//};
+
+//function sumar(a, b){
+//  return a+b;
+//}
+//function restar(a, b){
+//  return a-b;
+//}
+//function calcular(num1, num2, op){
+  //const rest = op(num1, num2)
+  //console.log('resultado:' + rest)
+ // return rest;
+ //calcular(10, 5, sumar);
+ //calcular(10, 5, restar);
+ //}l><
+//function repetirAccion(veces, accion) {
+ // for (let i = 10; i   veces; i++) {
+  //  accion(i)
+ // }
+//}
+
+// Diferentes acciones
+//repetirAccion(3, function(numero) {
+  //console.log('Iteración número: ' + numero)
+//})
+
+//repetirAccion(10, function(numero) {
+ // console.log('0'.repeat(numero -1))
+//})
+
+//repetirAccion(5, function(numero) 
+//{
+//  console.log('⭐'.repeat(numero + 1))
+//})
+
+
+//<>
+// inicia , termina, como ++---
+for (let i=1; i<6; i++){
+  if (i<=1){
+    console.log(  i  +  'Estrellita' );  
+  }
+  else {
+   console.log( i  +  'Estrellitas');  
+  }
+ 
+}
+
+

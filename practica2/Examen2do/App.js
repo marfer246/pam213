@@ -6,3 +6,6 @@ export default function App(){
      <MenuScreen/>  // ← Corregido: "MenuScreen" en lugar de "Manuscreen"
   );
 }
+
+
+I
