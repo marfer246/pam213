@@ -5,28 +5,23 @@ export default function ModalScreen() {
   
   const [modalVisible,setModalVisible] = useState(false);
   const [descripcion,setDescripcion] = useState('');
-
   const [numFav,setNumFav] = useState('');
-  
   const [gasto,setGasto] = useState(true);
   const botonGuardar = () => {
 
         if (!descripcion || !monto) {
           if (Platform.OS === "web") {
-
             alert('Error: Por favor completa todos los campos')
           } else {
             Alert.alert('Error', 'Por favor completa todos los campos');
           }
             return;
         }
-
         if (Platform.OS === 'web') {
             alert('Exito' + ` Prueba Realizada, Nombre: ${descripcion} y Numero favorito: ${monto}`); 
         } else {
             Alert.alert('Exito',  `Prueba Realizada, Nombre: ${descripcion} y Numero favorito: ${monto} `);
         }
-        
         botonCerrar();
     }
 
@@ -45,33 +40,25 @@ export default function ModalScreen() {
       <Modal animationType ="slide" visible={modalVisible} transparent={true} onRequestClse={botonCerrar} >
         <View style={styles.modalContenedor}>
            <View style={styles.modalVista}>
-              <View style={styles.modalTitulo}>Prueba de Modal</View>
-              
-              <TextInput style={styles.modalInput} placeholder='Escribe tu nombre' placeholderTextColor="#888" value={descripcion} onChangeText={setDescripcion}/>
-              <TextInput style={styles.modalInput} placeholder='Escribe tu número favorito' keyboardType='numeric' placeholderTextColor="#888" value={numFav} onChangeText={setNumFav}/>
-            
+              <View style={styles.modalTitulo}>Prueba de Modal</View>    
+              <TextInput style={styles.modalInput} placeholder='Escribe tu nombre' placeholderTextColor="#9d5f5fff" value={descripcion} onChangeText={setDescripcion}/>
+              <TextInput style={styles.modalInput} placeholder='Escribe tu número favorito' keyboardType='numeric' placeholderTextColor="#b5aaaaff" value={numFav} onChangeText={setNumFav}/>
               <View style={styles.switchContenedor}>
-
               <Text style={[styles.switchTexto, !gasto && styles.switchTextoActivoVerde]}>Activo</Text>
               <Switch trackColor={{false:'#DCFCE7', true: '#FEE2E2'}} thumbColor={gasto ? '#EF4444' : '#22C55E'} onValueChange={()=> setGasto(!gasto)} value={gasto}/>
               <Text style={[styles.switchTexto, !gasto && styles.switchTextoActivoRojo]}>Inactivo</Text>
               </View>  
-
-              <View style={styles.modalBotones}>
-                   
+              <View style={styles.modalBotones}>    
                    <TouchableOpacity style={[styles.botonBase,styles.botonCancelar]} onPress={botonCerrar}>
                    <Text style={styles.botonCancelarTexto}>Cancelar</Text>
                    </TouchableOpacity>
-
                    <TouchableOpacity style={[styles.botonBase,styles.botonGuardar]} onPress={botonGuardar}>
                    <Text style={styles.botonGuardarTexto}>Guardar</Text>
                    </TouchableOpacity>
-
               </View>
            </View>
         </View>
-      </Modal>
-      
+      </Modal>  
     </View>
   )
 }
@@ -90,7 +77,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 10,
     alignItems: 'center',
-    backgroundColor: '#007AFF', 
+    backgroundColor: '#1edf38ff', 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -188,7 +175,7 @@ const styles = StyleSheet.create({
 
   },
   botonGuardar: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#d0eb48ff',
 
   },
   botonGuardarTexto: {
