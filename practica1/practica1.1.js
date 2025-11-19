@@ -106,16 +106,26 @@
 
 //<>
 // inicia , termina, como ++---
-for (let i=1; i<6; i++){
-  if (i<=1){
-    console.log(  i  +  'Estrellita' );  
-  }
-  else {
-   console.log( i  +  'Estrellitas');  
-  }
+//for (let i=1; i<6; i++){
+ // if (i<=1){
+   // console.log(  i  +  'Estrellita' );  
+ // }
+ // else {
+  // console.log( i  +  'Estrellitas');  
+ // }
  
-}
+//<
+// factorial de un numero 
+function fibonacci(numero){
 
+  if (numero <= 1) {
+    return 1;
+  }
+  console.log( numero);
+  return numero * factorial(numero -1) 
+
+}
+console.log(fibonacci(6));
 
 
 
