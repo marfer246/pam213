@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native';
-//import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
@@ -24,11 +23,32 @@ const styles = StyleSheet.create({
   iconRow: {
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: 40,
   },
   title: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginTop: 10,
     color: 'red',
+    textAlign: 'center',
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginBottom: 20,
+    width: '80%',
+    alignItems: 'center',
+  },
+  buttonProfile: {
+    backgroundColor: '#007BFF',
+  },
+  buttonSettings: {
+    backgroundColor: '#FF8800',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

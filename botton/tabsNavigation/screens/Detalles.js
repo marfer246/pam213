@@ -1,17 +1,12 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function Profile({ navigation }) {
+export default function Detalles({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
-        <Ionicons name="person-outline" size={28} color="green" />
-        <Text style={styles.title}>Perfil de usuario</Text>
+        <Text style={styles.title}>Detalles Usuario{"\n"}Usando Navegacion Stack</Text>
       </View>
-
-      <Pressable style={[styles.button, styles.buttonDetails]} onPress={() => navigation.navigate('Detalles')}>
-        <Text style={styles.buttonText}>Detalles de usuario</Text>
-      </Pressable>
     </View>
   );
 }
@@ -31,10 +26,22 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
+   // fontWeight: 'bold',
     marginTop: 10,
-    color: 'green',
+    color: '#798ee9ff',
     textAlign: 'center',
+  },
+  detailsContainer: {
+    backgroundColor: '#F8F9FA',
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 30,
+    width: '100%',
+  },
+  detailText: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: '#333',
   },
   button: {
     paddingVertical: 12,
@@ -44,14 +51,8 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'center',
   },
-  buttonDetails: {
-    backgroundColor: '#f189f1ff',
-  },
-  buttonSettings: {
-    backgroundColor: '#FF8800',
-  },
-  buttonHome: {
-    backgroundColor: '#28A745',
+  buttonBack: {
+    backgroundColor: '#6F42C1',
   },
   buttonText: {
     color: '#fff',
